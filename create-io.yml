@@ -1,0 +1,12 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Template to create an io1 EBS volume
+
+Resources:
+  MyEBSVolume:
+    Type: AWS::EC2::Volume
+    Properties: 
+      AvailabilityZone: !Select [0, !GetAZs '']
+      Size: 10 # size in GiB
+      VolumeType: io1
+      Iops: 100 # IOPS for io1 volume
+
